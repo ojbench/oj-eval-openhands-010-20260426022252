@@ -395,13 +395,13 @@ public:
         node *p2 = other.head;
         
         while (p1 != tail && p2 != other.tail) {
-            if (*(p1->data) <= *(p2->data)) {
-                p1 = p1->next;
-            } else {
+            if (*(p2->data) < *(p1->data)) {
                 node *next_p2 = p2->next;
                 other.erase(p2);
                 insert(p1, p2);
                 p2 = next_p2;
+            } else {
+                p1 = p1->next;
             }
         }
         
